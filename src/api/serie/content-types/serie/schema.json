@@ -25,20 +25,30 @@
       "type": "decimal"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "threads": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::thread.thread",
       "mappedBy": "serie"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "series"
+    },
+    "end_date": {
+      "type": "integer"
     }
   }
 }

@@ -14,7 +14,7 @@ module.exports = plugin => {
     const user = await strapi.entityService.findOne(
       'plugin::users-permissions.user',
       ctx.state.user.id,
-      { populate: ['threads', 'threads.serie', 'series'] }
+      { populate: ['threads', 'threads.serie', 'series', 'series.image'] }
     );
 
     ctx.body = sanitizeOutput(user);
